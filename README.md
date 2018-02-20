@@ -13,7 +13,7 @@ with [LORIS](https://github.com/aces/loris) installations.
 
 | Name                         | Description                                                                                     |
 |------------------------------|-------------------------------------------------------------------------------------------------|
-| TODO | TODO |
+| LorisBySubjectAndVisit       | A FileCollection used to represent the mappings in LorisPhantomNativeSshDataProvider            |
 
 #### 2. CbrainTasks
 
@@ -32,6 +32,8 @@ file system tree.
 | LorisAssemblyNativeSshDataProvider            | Maps only MINC files in \*/\*/mri/native/\*.mnc                                                 |
 | LorisAssemblyProcessedSshDataProvider         | Maps any files in \*/\*/mri/processed/\*                                                        |
 | LorisCcnaPhantomAssemblyNativeSshDataProvider | Like LorisAssemblyNativeSshDataProvider except the path components are more strictly controlled |
+| LorisPhantomNativeSshDataProvider             | Maps Loris repository according to some convention regarding the Subject_id and the Visit_id    |
+
 
 ## How to install this package
 
