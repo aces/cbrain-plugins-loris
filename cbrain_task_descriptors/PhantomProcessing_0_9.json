@@ -98,7 +98,7 @@
         } 
             
     ],  
-    "name": "Phantom processing tool with wrapper", 
+    "name": "Phantom Timepoint Processing", 
     "output-files": [
         {
             "id": "OUTPUT_dir",
