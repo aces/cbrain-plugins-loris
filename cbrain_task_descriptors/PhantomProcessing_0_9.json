@@ -98,7 +98,7 @@
         } 
             
     ],  
-    "name": "Phantom Timepoint Processing", 
+    "name": "PhantomProc_0.9", 
     "output-files": [
         {
             "id": "OUTPUT_dir",
