@@ -1,0 +1,113 @@
+{
+    "command-line": " python /opt/phantom/run-process-timepoint.py [FILECOL] [MODEL] [MODEL_ROI] [MASK] [BRICKS] [SCAN_SOFTWARE] [SCAN_MODEL] [SERIAL] [ACQ_DATE]", 
+    "container-image": {
+        "image": "phantom_process_w_wrapper.simg", 
+        "type": "singularity"
+    }, 
+    "description": "Phantom processing script written by Vladimir Fonov", 
+    "inputs": [
+        {
+            "command-line-flag": "--filecol", 
+            "id": "file_collect", 
+            "list": false, 
+            "name": "File Collection", 
+            "description":"Defines the collection of files that this pipeline will be operated on. The directory should have two 3d T1W, a T2W, a resting state, and a pd image file inside", 
+            "optional": false, 
+            "type": "File", 
+            "value-key": "[FILECOL]"
+        }, 
+        {
+            "command-line-flag": "--serial", 
+            "id": "serial", 
+            "list": false, 
+            "name": "Scanner serial", 
+            "description": "Serial number of the imaging device (leave blank to extract from minc file metadata)",
+            "optional": true, 
+            "type": "String", 
+            "value-key": "[SERIAL]"
+        }, 
+        {
+            "command-line-flag": "--acq_date", 
+            "id": "acq_date", 
+            "list": false, 
+            "name": "Acquisition date",
+            "description": "Date that the images were acquired (leave blank to extract from minc file metadata)", 
+            "optional": true, 
+            "type": "String", 
+            "value-key": "[ACQ_DATE]"
+        }, 
+        {
+            "command-line-flag": "--scanner_model", 
+            "id": "scanner_model", 
+            "list": false, 
+            "name": "Scanner model", 
+            "description": "Model of the imaging device (leave blank to extract from minc file metadata)",
+            "optional": true, 
+            "type": "String", 
+            "value-key": "[SCAN_MODEL]"
+        }, 
+        {
+            "command-line-flag": "--scanner_software", 
+            "id": "scanner_software", 
+            "list": false, 
+            "name": "Scanner software version", 
+            "description": "Version of software used on the imaging device (leave blank to extract from minc file metadata)",
+            "optional": true, 
+            "type": "String", 
+            "value-key": "[SCAN_SOFTWARE]"
+        }, 
+        {
+            "command-line-flag": "--model", 
+            "id": "model_file", 
+            "list": false, 
+            "name": "Model File", 
+            "description": "Make / Model of the imaging device (leave blank to extract from minc file metadata)",
+            "optional": true, 
+            "type": "File", 
+            "value-key": "[MODEL]"
+        }, 
+        {
+            "command-line-flag": "--model_roi", 
+            "id": "model_rio_file", 
+            "list": false, 
+            "name": "Model File", 
+            "description": "ROI file for image processing (leave blank unless you have your own version of this information)",
+            "optional": true, 
+            "type": "File", 
+            "value-key": "[MODEL_ROI]"
+        }, 
+        {
+            "command-line-flag": "--mask", 
+            "id": "mask_file", 
+            "list": false, 
+            "name": "Mask File", 
+            "description": "Mask file for image processing (leave blank unless you have your own version of this information)",
+            "optional": true, 
+            "type": "File", 
+            "value-key": "[MASK]"
+        }, 
+        {
+            "command-line-flag": "--bricks", 
+            "id": "brick_file", 
+            "list": false, 
+            "name": "Bricks File", 
+            "description": "Lego brick file for image processing (leave blank unless you have your own version of this information)",
+            "optional": true, 
+            "type": "File", 
+            "value-key": "[BRICKS]"
+        } 
+            
+    ],  
+    "name": "Phantom processing tool with wrapper", 
+    "output-files": [
+        {
+            "id": "OUTPUT_dir",
+	    "list":false,
+            "name": "Output directory", 
+            "description": "Directory to place all output files from this pipeline",
+            "path-template": "[FILECOL]_proccessed_phantom_timepoint_pipeline"
+        } 
+    ], 
+    "schema-version": "0.5", 
+    "tool-version": "0.9"
+}
