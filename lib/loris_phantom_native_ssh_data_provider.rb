@@ -23,7 +23,7 @@
 class LorisPhantomNativeSshDataProvider < LorisAssemblyNativeSshDataProvider
 
   Revision_info=CbrainFileRevision[__FILE__] #:nodoc:
-  
+
   FILE_NAME_REGEX     = /\A
                               (\d\d\d\d\d\d)         # $1 Subject ID
                              _(Initial_MRI|          # $2 Visit, one of "Initial_MRI" or ...
@@ -51,7 +51,7 @@ class LorisPhantomNativeSshDataProvider < LorisAssemblyNativeSshDataProvider
                 'uid',  'gid',  'owner', 'group',
                 'atime', 'ctime', 'mtime' ]
     self.master # triggers unlocking the agent
-    Net::SFTP.start(remote_host,remote_user, :port => remote_port, :auth_methods => [ 'publickey' ] ) do |sftp|
+    Net::SFTP.start(remote_host,remote_user, :port => (remote_port.presence || 22), :auth_methods => [ 'publickey' ] ) do |sftp|
       sftp.dir.glob(self.browse_remote_dir(user).to_s, "*/*") do |entry| # glob enforce 6 digits
         attributes = entry.attributes
 
@@ -61,7 +61,7 @@ class LorisPhantomNativeSshDataProvider < LorisAssemblyNativeSshDataProvider
         next if is_excluded?(entry.name) # in DataProvider
 
         name = entry.name.gsub("/","_")
-        next unless name =~ FILE_NAME_REGEX 
+        next unless name =~ FILE_NAME_REGEX
 
         fileinfo               = FileInfo.new
         fileinfo.name          = name

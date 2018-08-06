@@ -85,7 +85,7 @@ class LorisAssemblyProcessedSshDataProvider < SshDataProvider
                 'uid',  'gid',  'owner', 'group',
                 'atime', 'ctime', 'mtime' ]
     self.master # triggers unlocking the agent
-    Net::SFTP.start(remote_host,remote_user, :port => remote_port, :auth_methods => [ 'publickey' ] ) do |sftp|
+    Net::SFTP.start(remote_host,remote_user, :port => (remote_port.presence || 22), :auth_methods => [ 'publickey' ] ) do |sftp|
       sftp.dir.glob(self.browse_remote_dir(user).to_s, "*/*/mri/processed/*") do |entry|
         attributes = entry.attributes
 
