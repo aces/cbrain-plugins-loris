@@ -20,6 +20,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+# Contains the implementation of glob_skip()
+require_relative 'net_sftp_glob_skip'
+
 #
 # This class provides an implementation for a data provider
 # where the remote files are accessed following the LORIS
@@ -86,7 +89,7 @@ class LorisAssemblyProcessedSshDataProvider < SshDataProvider
                 'atime', 'ctime', 'mtime' ]
     self.master # triggers unlocking the agent
     Net::SFTP.start(remote_host,remote_user, :port => (remote_port.presence || 22), :auth_methods => [ 'publickey' ] ) do |sftp|
-      sftp.dir.glob(self.browse_remote_dir(user).to_s, "*/*/mri/processed/*") do |entry|
+      sftp.dir.glob_skip(self.browse_remote_dir(user).to_s, "*/*/mri/processed/*") do |entry|
         attributes = entry.attributes
 
         type = attributes.symbolic_type

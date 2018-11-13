@@ -20,6 +20,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+# Contains the implementation of glob_skip()
+require_relative 'net_sftp_glob_skip'
+
 class LorisPhantomNativeSshDataProvider < LorisAssemblyNativeSshDataProvider
 
   Revision_info=CbrainFileRevision[__FILE__] #:nodoc:
@@ -52,7 +55,7 @@ class LorisPhantomNativeSshDataProvider < LorisAssemblyNativeSshDataProvider
                 'atime', 'ctime', 'mtime' ]
     self.master # triggers unlocking the agent
     Net::SFTP.start(remote_host,remote_user, :port => (remote_port.presence || 22), :auth_methods => [ 'publickey' ] ) do |sftp|
-      sftp.dir.glob(self.browse_remote_dir(user).to_s, "*/*") do |entry| # glob enforce 6 digits
+      sftp.dir.glob_skip(self.browse_remote_dir(user).to_s, "*/*") do |entry| # glob enforce 6 digits
         attributes = entry.attributes
 
         type = attributes.symbolic_type
