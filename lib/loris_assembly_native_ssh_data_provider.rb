@@ -88,7 +88,7 @@ class LorisAssemblyNativeSshDataProvider < SshDataProvider
     cb_error "Files on this data provider cannot be renamed."
   end
 
-  def impl_provider_list_all(user=nil) #:nodoc:
+  def impl_provider_list_all(user=nil,browse_path=nil) #:nodoc:
     list = []
     attlist = [ 'symbolic_type', 'size', 'permissions',
                 'uid',  'gid',  'owner', 'group',
