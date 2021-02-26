@@ -1,9 +1,11 @@
-v5.0.2 -#- 2018-03-09 11:11:05 -0500 -#- CBRAIN Team -#- __cbrain-plugins-loris_TAG__
-5b631f6748c0d09465765540ce62ad93d91ec124 -#- 2018-02-21 10:26:40 -0500 -#- Shawn Brown -#- __cbrain-plugins-loris_HEAD__
+v6.1.0 -#- 2021-02-26 09:42:26 -0500 -#- CBRAIN Team -#- __cbrain-plugins-loris_TAG__
+e66816488385e450a356a1214dd114805b04e207 -#- 2021-02-11 14:16:31 -0500 -#- Pierre Rioux -#- __cbrain-plugins-loris_HEAD__
 30b0a38e62dc7886629da1d8916ec3b854df6f75 -#- 2018-02-20 15:24:19 -0500 -#- Natacha Beck -#- README.md
+39cb3bb1561203be610b8ad960f8b5333cde65e2 -#- 2018-03-09 11:40:58 -0500 -#- Pierre Rioux -#- cbrain_file_revisions.csv
 5b631f6748c0d09465765540ce62ad93d91ec124 -#- 2018-02-21 10:26:40 -0500 -#- Shawn Brown -#- cbrain_task_descriptors/PhantomProcessing_0_9.json
-1e19d31b3cd5c93a29f5e508f5594f5cc353f6dc -#- 2018-02-20 14:45:47 -0500 -#- Pierre Rioux -#- lib/loris_assembly_native_ssh_data_provider.rb
-1e19d31b3cd5c93a29f5e508f5594f5cc353f6dc -#- 2018-02-20 14:45:47 -0500 -#- Pierre Rioux -#- lib/loris_assembly_processed_ssh_data_provider.rb
+e66816488385e450a356a1214dd114805b04e207 -#- 2021-02-11 14:16:31 -0500 -#- Pierre Rioux -#- lib/loris_assembly_native_ssh_data_provider.rb
+e66816488385e450a356a1214dd114805b04e207 -#- 2021-02-11 14:16:31 -0500 -#- Pierre Rioux -#- lib/loris_assembly_processed_ssh_data_provider.rb
 1e19d31b3cd5c93a29f5e508f5594f5cc353f6dc -#- 2018-02-20 14:45:47 -0500 -#- Pierre Rioux -#- lib/loris_ccna_phantom_assembly_native_ssh_data_provider.rb
-30b0a38e62dc7886629da1d8916ec3b854df6f75 -#- 2018-02-20 15:24:19 -0500 -#- Natacha Beck -#- lib/loris_phantom_native_ssh_data_provider.rb
+e66816488385e450a356a1214dd114805b04e207 -#- 2021-02-11 14:16:31 -0500 -#- Pierre Rioux -#- lib/loris_phantom_native_ssh_data_provider.rb
+274456bd9280f6f85e5a5ef980b6406fba21dc25 -#- 2018-11-13 15:21:27 -0500 -#- Pierre Rioux -#- lib/net_sftp_glob_skip.rb
 30b0a38e62dc7886629da1d8916ec3b854df6f75 -#- 2018-02-20 15:24:19 -0500 -#- Natacha Beck -#- userfiles/loris_by_subject_and_visit/loris_by_subject_and_visit.rb
