@@ -94,7 +94,10 @@ class LorisAssemblyNativeSshDataProvider < SshDataProvider
                 'uid',  'gid',  'owner', 'group',
                 'atime', 'ctime', 'mtime' ]
     self.master # triggers unlocking the agent
-    Net::SFTP.start(remote_host,remote_user, :port => (remote_port.presence || 22), :auth_methods => [ 'publickey' ] ) do |sftp|
+
+    # Stupidly, some SSHDs insist on having 'keyboard-interactive' in the :auth_methods
+    # even if we're not planning ot use it. Probably because of 2FA.
+    Net::SFTP.start(remote_host,remote_user, :port => (remote_port.presence || 22), :auth_methods => [ 'publickey', 'keyboard-interactive' ] ) do |sftp|
       sftp.dir.glob_skip(self.browse_remote_dir(user).to_s, "*/*/mri/native/*.mnc*") do |entry|
         attributes = entry.attributes
 
